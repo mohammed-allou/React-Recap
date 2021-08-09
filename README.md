@@ -7,6 +7,13 @@
 
 ### `npm i -s react-router-dom`
 
+## To install and save Material-UI in your package.json dependencies, run:
+
+### `npm install @material-ui/core`
+
+## to use prebuilt SVG Material icons, run:
+
+### `npm install @material-ui/icons`
 
 In the project directory, you can run:
 
