@@ -11,8 +11,9 @@ function Home() {
         <>
             {!state ?
                 (<>
-                    <h1>hellow!!!</h1>
+                    <h1 title='checkText'>hellow!!!</h1>
                     <Button
+                        title='checkBtn'
                         variant="outlined"
                         color="primary"
                         onClick={handleClick}
