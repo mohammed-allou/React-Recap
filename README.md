@@ -1,37 +1,32 @@
-# Pour creer une nouvelle application React App dans un dossier vide
+# Pour créer une nouvelle application React App dans un dossier vide
 
-### `npm install -g create-react-app`
+#### `npm install -g create-react-app`
 
-###### Puis
+##### Puis
 
-### `npx create-react-app <name-project>`
+#### `npx create-react-app <name-project>`
 
-## Pour naviguer entre les pages il vous faut react-router:
+#### Pour naviguer entre les pages il vous faut react-router:
 
-### `npm i -s react-router-dom`
+#### `npm i -s react-router-dom`
 
-## Pour ajouter le framework d'interface utilisateur React Material-UI :
+#### Pour ajouter le framework d'interface utilisateur React Material-UI :
 
-### `npm install @material-ui/core`
+#### `npm install @material-ui/core`
 
-## Pour 'utiliser des icônes et les SVG de Material icons :
+#### Pour utiliser les icônes et les SVG de Material icons :
 
-### `npm install @material-ui/icons`
+#### `npm install @material-ui/icons`
 
-## Dans le repertoire de projet pour commencer :
+#### Dans le repertoire de projet pour commencer :
 
-### `yarn start`
+#### `yarn start`
 
 Par default le projet va se lancer dans le port: [http://localhost:3000] pour avoir une visualisation dans le navigateur.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 # Tests unitaires
 
-### Dans un terminal il faut installer ces dependences:
+#### Dans un terminal il faut installer ces dependences:
 
 ```javascript
 yarn add --dev react-test-renderer
@@ -105,15 +100,15 @@ export const presets = [['@babel/preset-env', '@babel/preset-react', {
 
 #### Pour tester les HOOKS il faut ajouter ces librairies :
 
-### `yarn add --dev @testing-library/react-hooks`
+#### `yarn add --dev @testing-library/react-hooks`
 
-### `yarn add -dev react-test-renderer`
+#### `yarn add -dev react-test-renderer`
 
 #### Pour lancer le test d'un composant bien défini:
 
-### `npx jest <nomDuComposant.test.js>`
+#### `npx jest <nomDuComposant.test.js>`
 
 #### Pour que tous les tests soient exécutés automatiquement en tape:
 
-### `npx jest --watch`
+#### `npx jest --watch`
 
