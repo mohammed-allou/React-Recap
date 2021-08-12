@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
-function Home() {
+function Home({ handleClick }) {
     const [state, setstate] = useState(false);
-    const handleClick = () => {
+    handleClick = () => {
         setstate(!state)
     }
     return (
@@ -13,7 +13,7 @@ function Home() {
                 (<>
                     <h1 title='checkText'>hellow!!!</h1>
                     <Button
-                        title='checkBtn'
+                        data-testid='checkBtn'
                         variant="outlined"
                         color="primary"
                         onClick={handleClick}
@@ -23,7 +23,7 @@ function Home() {
                 </>)
                 :
                 (
-                    <Typography variant="h1" color="initial">
+                    <Typography variant="h1" color="initial" data-testid='checkTaxtRender'>
                         Bienvenu
                     </Typography>)
             }

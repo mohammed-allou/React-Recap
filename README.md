@@ -1,32 +1,51 @@
-# Pour créer une nouvelle application React App dans un dossier vide
+### Pour créer une nouvelle application React App, placez-vous dans un dossier vide puis exécuter cette commande :
 
-#### `npm install -g create-react-app`
+```javascript
+ npm install -g create-react-app
+```
+#### Cette commande install l'outil 'create-react-app' d'une manière globale qui permet de créer le squelete d'un projet React.
 
 ##### Puis
 
-#### `npx create-react-app <name-project>`
+```javascript
+npx create-react-app <name-project>
+```
 
 #### Pour naviguer entre les pages il vous faut react-router:
 
-#### `npm i -s react-router-dom`
+```javascript
+npm i react-router-dom
+```
 
 #### Pour ajouter le framework d'interface utilisateur React Material-UI :
 
-#### `npm install @material-ui/core`
+```javascript
+npm install @material-ui/core
+```
 
 #### Pour utiliser les icônes et les SVG de Material icons :
 
-#### `npm install @material-ui/icons`
+```javascript
+npm install @material-ui/icons
+```
 
-#### Dans le repertoire de projet pour commencer :
+#### Pour démarrer l'application en local, executer la commande suivante :
 
-#### `yarn start`
+```
+yarn start
+```
 
 Par default le projet va se lancer dans le port: [http://localhost:3000] pour avoir une visualisation dans le navigateur.
 
 # Tests unitaires
 
-#### Dans un terminal il faut installer ces dependences:
+Pour éviter toutes erreurs de compilation consernant la reconnaissance du syntaxe jsx et d'autres modules il est recommandé d'ajouter ces librairies =>
+Pour plus de detail sur la configuration de l'environement de test:
+[https://jestjs.io/docs/configuration]
+[https://create-react-app.dev/docs/running-tests#initializing-test-environment]
+[https://testing-library.com/docs/react-testing-library]
+
+#### Dans un terminal il faut installer ces dépendences:
 
 ```javascript
 yarn add --dev react-test-renderer
@@ -100,15 +119,20 @@ export const presets = [['@babel/preset-env', '@babel/preset-react', {
 
 #### Pour tester les HOOKS il faut ajouter ces librairies :
 
-#### `yarn add --dev @testing-library/react-hooks`
+```javascript
+yarn add --dev @testing-library/react-hooks
 
-#### `yarn add -dev react-test-renderer`
+yarn add -dev react-test-renderer
+```
 
 #### Pour lancer le test d'un composant bien défini:
 
-#### `npx jest <nomDuComposant.test.js>`
+```javascript
+npx jest <nomDuComposant.test.js>
+```
 
-#### Pour que tous les tests soient exécutés automatiquement en tape:
+#### Pour lancer les tests automatiquement, executer la commande :
 
-#### `npx jest --watch`
-
+```javascript
+npx jest --watch
+```

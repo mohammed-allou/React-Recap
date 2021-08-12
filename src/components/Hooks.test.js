@@ -7,5 +7,4 @@ test('toggleHook', () => {
         result.current.handleClick()
     })
     expect(result.current.state).toBeTruthy()
-    // console.log('Hooks log', result.current[0])
 })
