@@ -1,74 +1,138 @@
-# Getting Started a new react application with Create React App
+### Pour créer une nouvelle application React App, placez-vous dans un dossier vide puis exécuter cette commande :
 
-### `npx create-react-app name-project`
+```javascript
+ npm install -g create-react-app
+```
+#### Cette commande install l'outil 'create-react-app' d'une manière globale qui permet de créer le squelete d'un projet React.
 
+##### Puis
 
-## Install the router to navigate between pages
+```javascript
+npx create-react-app <name-project>
+```
 
-### `npm i -s react-router-dom`
+#### Pour naviguer entre les pages il vous faut react-router:
 
+```javascript
+npm i react-router-dom
+```
 
-In the project directory, you can run:
+#### Pour ajouter le framework d'interface utilisateur React Material-UI :
 
-### `yarn start`
+```javascript
+npm install @material-ui/core
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Pour utiliser les icônes et les SVG de Material icons :
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```javascript
+npm install @material-ui/icons
+```
 
-### `yarn test`
+#### Pour démarrer l'application en local, executer la commande suivante :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+yarn start
+```
 
-### `yarn build`
+Par default le projet va se lancer dans le port: [http://localhost:3000] pour avoir une visualisation dans le navigateur.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Tests unitaires
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Pour éviter toutes erreurs de compilation consernant la reconnaissance du syntaxe jsx et d'autres modules il est recommandé d'ajouter ces librairies =>
+Pour plus de detail sur la configuration de l'environement de test:
+[https://jestjs.io/docs/configuration]
+[https://create-react-app.dev/docs/running-tests#initializing-test-environment]
+[https://testing-library.com/docs/react-testing-library]
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Dans un terminal il faut installer ces dépendences:
 
-### `yarn eject`
+```javascript
+yarn add --dev react-test-renderer
+yarn add -D babel-jest @babel/preset-env @babel/preset-react
+yarn add --dev jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+###### Dans le fichier babel.config.js il faut ajouter ces lignes:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```json
+// babel.config.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+module.exports = {
+ presets: ['@babel/preset-env', '@babel/preset-react'],
+};
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+###### Dans le fichier package.json il faut ajouter ces lignes:
 
-## Learn More
+```javascript
+    // package.json
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+"jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "verbose": true
+  },
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+###### Dans un fichier setupTests.js il faut ajouter ces lignes:
 
-### Code Splitting
+```javascript
+// setupTests.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+import '@testing-library/jest-dom/extend-expect';
+const localStorageMock = {
+    getItem: jest.fn(),
+    setItem: jest.fn(),
+    removeItem: jest.fn(),
+    clear: jest.fn(),
+};
+global.localStorage = localStorageMock;
+```
 
-### Analyzing the Bundle Size
+###### Dans un fichier bebel.config.js il faut ajouter:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```javascript
+//bebel.config.js
 
-### Making a Progressive Web App
+export const presets = [['@babel/preset-env', '@babel/preset-react', {
+    targets: {
+        node: "current",
+    },
+}], "next/babel"];
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
 
-### Advanced Configuration
+###### Puis dans le package.json :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```javascript
+//package.json
+"babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  ```
 
-### Deployment
+#### Pour tester les HOOKS il faut ajouter ces librairies :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```javascript
+yarn add --dev @testing-library/react-hooks
 
-### `yarn build` fails to minify
+yarn add -dev react-test-renderer
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Pour lancer le test d'un composant bien défini:
+
+```javascript
+npx jest <nomDuComposant.test.js>
+```
+
+#### Pour lancer les tests automatiquement, executer la commande :
+
+```javascript
+npx jest --watch
+```
