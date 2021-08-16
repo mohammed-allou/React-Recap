@@ -46,3 +46,16 @@ describe('event after click', () => {
         expect(screen.getByTestId('checkTaxtRender')).toEqual(expect.anything())
     })
 })
+describe('render component', () => {
+    it('render', async () => {
+        render(<Home />)
+        const buttonClick = screen.getByRole('button')
+        // expect(buttonClick.textContent).toBe('click')
+        fireEvent.click(buttonClick)
+        expect(buttonClick.textContent).not.toBe('click')
+    })
+})
+test('expect arrayContaining', () => {
+    const myArray = [1, 2, 3, 5, 7]
+    expect(myArray).toEqual(expect.arrayContaining([2, 5]))
+})

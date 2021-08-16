@@ -3,9 +3,9 @@
   "jest": {
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
-      "!**/node_modules/**",
       "!**/vendor/**"
     ],
+    "collectCoverage": true,
     "verbose": true
   },
   "version": "0.1.0",

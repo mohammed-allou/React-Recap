@@ -110,6 +110,7 @@ export const presets = [['@babel/preset-env', '@babel/preset-react', {
 
 ```javascript
 //package.json
+
 "babel": {
     "presets": [
       "react-app"
